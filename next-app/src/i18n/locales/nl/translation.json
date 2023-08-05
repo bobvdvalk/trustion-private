@@ -14,5 +14,7 @@
   "signNew": "Markeer een Document",
   "sign": "Markeer",
   "signedOn": "{{date}} gemarkeerd",
-  "alreadySignedError": "Dit document is al eerder gemarkeerd"
+  "alreadySignedError": "Dit document is al eerder gemarkeerd",
+  "documentNotFound": "Document niet gevonden",
+  "documentNotFoundSubtitle": "Dit document is niet eerder gemarkeerd."
 }

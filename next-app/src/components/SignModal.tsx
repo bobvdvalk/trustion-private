@@ -30,6 +30,7 @@ export const SignModal = ({ lang, onClose }: Localized & Props) => {
       setAlreadySigned(false);
       const result = await signDocument(file, context);
       router.push(`/${lang}/validate/${result.hash}`);
+      router.refresh();
       onClose();
     } catch (e) {
       if (e === "ALREADY_SIGNED") {

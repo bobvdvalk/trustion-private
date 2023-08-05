@@ -77,7 +77,7 @@ async function request(
   const jsonBody = await response.json();
   if (jsonBody?.errors && Array.isArray(jsonBody.errors)) {
     for (let error of jsonBody.errors) {
-      console.log(error);
+      throw error;
     }
   }
   if (jsonBody?.error) {

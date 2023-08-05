@@ -2,17 +2,39 @@
 import { Localized } from "@/i18n/Localized";
 import { useTranslation } from "@/i18n/useTranslation";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+
+function base64EncodeURL(byteArray: Uint8Array) {
+  return btoa(
+    Array.from(new Uint8Array(byteArray))
+      .map((val) => {
+        return String.fromCharCode(val);
+      })
+      .join(""),
+  )
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=/g, "");
+}
 
 export const FileValidator = ({ lang }: Localized) => {
   const { t } = useTranslation(lang, "translation");
   const [file, setFile] = useState<File>();
+  const router = useRouter();
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setFile(e.target.files?.item(0) || undefined);
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (!file) {
+      return;
+    }
+
+    const hash = await crypto.subtle.digest("SHA-1", await file.arrayBuffer());
+    const base64 = base64EncodeURL(new Uint8Array(hash));
+    router.push(`/${lang}/validate/${base64}`);
   }
 
   return (

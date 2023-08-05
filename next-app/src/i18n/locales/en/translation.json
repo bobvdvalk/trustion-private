@@ -14,5 +14,7 @@
   "signNew": "Sign a Document",
   "sign": "Sign",
   "signedOn": "Signed {{date}}",
-  "alreadySignedError": "This document has already been signed before"
+  "alreadySignedError": "This document has already been signed before",
+  "documentNotFound": "Document not found",
+  "documentNotFoundSubtitle": "This document has nog been signed before."
 }
