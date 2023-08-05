@@ -2,31 +2,20 @@
   "private": true,
   "workspaces": {
     "packages": [
+      "app",
+      "directus-app",
       "directus-extension-trustion",
       "models"
     ]
   },
   "scripts": {
-    "dev": "npm-run-all -s build:extension start:docker load -p dev:**",
-    "load": "npm-run-all -s load:bootstrap load:schema",
-    "load:bootstrap": "directus bootstrap",
-    "load:schema": "directus schema apply -y ./schema.yaml",
-    "dev:directus": "directus start",
-    "dev:extension": "yarn workspace directus-extension-trustion dev",
-    "dev:models": "yarn workspace models dev",
-    "start:docker": "docker compose up -d",
-    "start:directus": "directus start",
-    "build:extension": "yarn workspace directus-extension-trustion build",
-    "dump": "npm-run-all -p dump:**",
-    "dump:schema": "directus schema snapshot -y ./schema.yaml",
-    "dump:models": "directus models snapshot models/src/index.ts"
-  },
-  "dependencies": {
-    "directus-extension-models": "^2.1.0",
-    "directus-extension-trustion": "*"
+    "dev": "wsrun dev",
+    "dump": "wsrun -m dump"
   },
   "devDependencies": {
-    "directus": "^10.5.2",
-    "npm-run-all": "^4.1.5"
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "wsrun": "^5.2.4"
   }
 }

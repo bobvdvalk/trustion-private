@@ -1,0 +1,20 @@
+{
+  "name": "directus-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "run-s dev:**",
+    "dev:docker": "docker compose up -d",
+    "dev:bootstrap": "directus bootstrap",
+    "dev:schema": "directus schema apply ./schema.yaml --yes",
+    "dev:start": "directus start",
+    "dump": "run-p dump:**",
+    "dump:schema": "directus schema snapshot ./schema.yaml --yes",
+    "dump:model": "directus model snapshot ../models/src/index.ts"
+  },
+  "dependencies": {
+    "directus": "^10.5.2",
+    "directus-extension-models": "^2.1.0",
+    "directus-extension-trustion": "*"
+  }
+}
