@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "wsrun dev",
-    "dump": "wsrun -m dump"
+    "dump": "wsrun -m dump",
+    "stop": "wsrun -m stop"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.10.0",

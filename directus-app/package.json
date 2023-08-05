@@ -10,7 +10,8 @@
     "dev:start": "directus start",
     "dump": "run-p dump:**",
     "dump:schema": "directus schema snapshot ./schema.yaml --yes",
-    "dump:model": "directus model snapshot ../models/src/index.ts"
+    "dump:model": "directus model snapshot ../models/src/index.ts",
+    "stop": "docker compose down"
   },
   "dependencies": {
     "directus": "^10.5.2",
