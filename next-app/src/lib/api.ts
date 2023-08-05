@@ -1,5 +1,5 @@
 "use client";
-import { DirectusUser } from "models/dist";
+import { DirectusUser } from "models";
 
 type Method = "GET" | "POST";
 
@@ -79,6 +79,10 @@ async function request(
 export async function getCurrentUser(): Promise<DirectusUser> {
   return await request("GET", "/users/me", true);
 }
+
+export async function signDocument(file: File, context: string) {}
+
+export async function validateDocument(file: File) {}
 
 export async function logout(): Promise<void> {
   await request("POST", "/auth/logout", false, {});

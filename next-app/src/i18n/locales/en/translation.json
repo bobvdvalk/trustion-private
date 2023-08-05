@@ -3,10 +3,14 @@
   "tagline": "Securing Digital Documents for All",
   "validateNow": "Validate your document now!",
   "pickFile": "Pick a document...",
+  "document": "Document",
+  "context": "Context",
   "validate": "Validate",
   "login": "Login",
   "email": "Email",
   "password": "Password",
   "cancel": "Cancel",
-  "logout": "Logout"
+  "logout": "Logout",
+  "signNew": "Sign a Document",
+  "sign": "Sign"
 }

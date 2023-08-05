@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "@/i18n/useTranslation";
 import { DirectusUser } from "models";
 import { LoginModal } from "@/components/LoginModal";
+import { SignModal } from "@/components/SignModal";
 
 export const MyAccountButtons = ({ lang }: Localized) => {
   const [user, setUser] = useState<DirectusUser | false>();
   const { t } = useTranslation(lang, "translation");
   const [showLogin, setShowLogin] = useState(false);
+  const [showSignModal, setShowSignModal] = useState(false);
 
   useEffect(() => {
     getCurrentUser()
@@ -46,16 +48,37 @@ export const MyAccountButtons = ({ lang }: Localized) => {
 
   if (user) {
     return (
-      <div className="buttons">
-        <button
-          className="button is-light"
-          onClick={async () => {
-            await logout();
-          }}
-        >
-          {t("logout")}
-        </button>
-      </div>
+      <>
+        <div className="buttons">
+          <button
+            className="button is-primary"
+            onClick={() => {
+              setShowSignModal(true);
+            }}
+          >
+            <span className="icon">
+              <i className="fas fa-shield-alt" />
+            </span>
+            <span>{t("signNew")}</span>
+          </button>
+          <button
+            className="button is-light"
+            onClick={async () => {
+              await logout();
+            }}
+          >
+            {t("logout")}
+          </button>
+        </div>
+        {showSignModal && (
+          <SignModal
+            lang={lang}
+            onClose={() => {
+              setShowSignModal(false);
+            }}
+          />
+        )}
+      </>
     );
   }
   return null;

@@ -32,7 +32,7 @@ export const LoginModal = ({ lang, onClose }: Localized & Props) => {
 
   return (
     <Modal onClose={onClose} title={t("login")}>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} onReset={onClose}>
         <section className="modal-card-body">
           <div className="field">
             <label className="label">{t("email")}</label>
