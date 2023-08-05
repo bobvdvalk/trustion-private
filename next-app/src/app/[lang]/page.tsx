@@ -1,8 +1,9 @@
-import { translateServerSide } from "@/i18n/translateServerSide";
 import { PageProps } from "@/app/PageProps";
+import { FileValidator } from "@/components/FileValidator";
+import { getTranslator } from "@/i18n/getTranslator";
 
 export default async function Home({ params: { lang } }: PageProps) {
-  const { t } = await translateServerSide(lang, "common");
+  const { t } = await getTranslator(lang, "translation");
   return (
     <>
       <div className="hero  is-large is-primary">
@@ -11,6 +12,7 @@ export default async function Home({ params: { lang } }: PageProps) {
           <span className="subtitle">{t("tagline")}</span>
         </div>
       </div>
+      <FileValidator lang={lang} />
     </>
   );
 }

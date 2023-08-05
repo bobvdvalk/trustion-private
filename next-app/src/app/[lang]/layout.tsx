@@ -1,13 +1,13 @@
 import React, { PropsWithChildren } from "react";
 import "../../global.scss";
 import { PageProps } from "@/app/PageProps";
-import { translateServerSide } from "@/i18n/translateServerSide";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import styles from "./layout.module.scss";
+import { getTranslator } from "@/i18n/getTranslator";
 
 export async function generateMetadata({ params: { lang } }: PageProps) {
-  const { t } = await translateServerSide(lang, "common");
+  const { t } = await getTranslator(lang, "translation");
 
   return {
     title: t("title"),

@@ -1,9 +1,14 @@
 import { createInstance } from "i18next";
 import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next/initReactI18next";
-import { fallbackLanguage, languages } from "@/i18n/settings";
+import {
+  defaultNS,
+  fallbackLanguage,
+  Language,
+  languages,
+} from "@/i18n/settings";
 
-const initI18next = async (lang: string, ns: string) => {
+const initI18next = async (lang: Language, ns: string) => {
   const i18nInstance = createInstance();
   await i18nInstance
     .use(initReactI18next)
@@ -14,18 +19,17 @@ const initI18next = async (lang: string, ns: string) => {
       ),
     )
     .init({
-      lng: lang,
       supportedLngs: languages,
       fallbackLng: fallbackLanguage,
-      ns,
-      defaultNS: "translation",
-      fallbackNS: "translation",
+      lng: lang,
+      fallbackNS: defaultNS,
+      defaultNS,
     });
   return i18nInstance;
 };
 
-export async function translateServerSide(
-  lang: string,
+export async function getTranslator(
+  lang: Language,
   ns: string,
   options: { keyPrefix?: string } = {},
 ) {

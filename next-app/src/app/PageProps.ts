@@ -1,7 +1,5 @@
-import { Language } from "@/i18n/settings";
+import { Localized } from "@/i18n/Localized";
 
 export interface PageProps<T = {}> {
-  params: T & {
-    lang: Language;
-  };
+  params: T & Localized;
 }
