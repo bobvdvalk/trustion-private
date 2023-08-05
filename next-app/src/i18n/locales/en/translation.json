@@ -12,5 +12,7 @@
   "cancel": "Cancel",
   "logout": "Logout",
   "signNew": "Sign a Document",
-  "sign": "Sign"
+  "sign": "Sign",
+  "signedOn": "Signed {{date}}",
+  "alreadySignedError": "This document has already been signed before"
 }

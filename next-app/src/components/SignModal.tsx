@@ -4,6 +4,7 @@ import { useTranslation } from "@/i18n/useTranslation";
 import { classNames } from "@/lib/classNames";
 import { FormEvent, useState } from "react";
 import { signDocument } from "@/lib/api";
+import { useRouter } from "next/navigation";
 
 export interface Props {
   onClose: () => void;
@@ -14,6 +15,8 @@ export const SignModal = ({ lang, onClose }: Localized & Props) => {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState<File>();
   const [context, setContext] = useState("");
+  const [alreadySigned, setAlreadySigned] = useState(false);
+  const router = useRouter();
 
   async function handleSign(e: FormEvent) {
     e.preventDefault();
@@ -24,8 +27,16 @@ export const SignModal = ({ lang, onClose }: Localized & Props) => {
 
     setLoading(true);
     try {
+      setAlreadySigned(false);
       const result = await signDocument(file, context);
-      console.log(result);
+      router.push(`/${lang}/validate/${result.hash}`);
+      onClose();
+    } catch (e) {
+      if (e === "ALREADY_SIGNED") {
+        setAlreadySigned(true);
+        return;
+      }
+      console.error("Error", e);
     } finally {
       setLoading(false);
     }
@@ -37,11 +48,18 @@ export const SignModal = ({ lang, onClose }: Localized & Props) => {
         <section className="modal-card-body">
           <div className="field">
             <label className="label">{t("document")}</label>
-            <div className="file has-name is-fullwidth">
+            <div
+              {...classNames(
+                "file",
+                "has-name",
+                "is-fullwidth",
+                alreadySigned && "is-danger",
+              )}
+            >
               <label className="file-label">
                 <input
                   required
-                  className="file-input"
+                  {...classNames("file-input")}
                   type="file"
                   name="document"
                   onChange={(e) => {
@@ -57,6 +75,9 @@ export const SignModal = ({ lang, onClose }: Localized & Props) => {
                 <span className="file-name">{file?.name || "..."}</span>
               </label>
             </div>
+            <p className="help is-danger">
+              {alreadySigned && t("alreadySignedError")}
+            </p>
           </div>
           <div className="field">
             <label className="label">{t("context")}</label>

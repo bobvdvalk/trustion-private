@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang={lang} className="is-clipped">
       <body className={styles.body}>
-        <Navbar />
+        <Navbar lang={lang} />
         <main className={styles.main}>{children}</main>
         <Footer />
       </body>

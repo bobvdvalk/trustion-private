@@ -8,6 +8,7 @@ type Method = "GET" | "POST";
 // while the user has an active session
 //
 let accessTokenCache: string | "unauthenticated" | undefined;
+
 async function getAccessToken(): Promise<string | "unauthenticated"> {
   if (accessTokenCache) {
     return accessTokenCache;
@@ -56,8 +57,12 @@ async function request(
     body: <any>undefined,
   };
   if (body) {
-    options.headers["content-type"] = "application/json";
-    options.body = JSON.stringify(body);
+    if (body instanceof FormData) {
+      options.body = body;
+    } else {
+      options.headers["content-type"] = "application/json";
+      options.body = JSON.stringify(body);
+    }
   }
   if (auth) {
     const token = await getAccessToken();
@@ -70,17 +75,27 @@ async function request(
     return undefined;
   }
   const jsonBody = await response.json();
-  if (response.ok) {
-    return jsonBody;
+  if (jsonBody?.errors && Array.isArray(jsonBody.errors)) {
+    for (let error of jsonBody.errors) {
+      console.log(error);
+    }
   }
-  throw jsonBody;
+  if (jsonBody?.error) {
+    throw jsonBody.error;
+  }
+  return jsonBody;
 }
 
 export async function getCurrentUser(): Promise<DirectusUser> {
   return await request("GET", "/users/me", true);
 }
 
-export async function signDocument(file: File, context: string) {}
+export async function signDocument(file: File, context: string) {
+  const data = new FormData();
+  data.set("document", file);
+  data.set("context", context);
+  return await request("POST", "/signDocument", true, data);
+}
 
 export async function validateDocument(file: File) {}
 

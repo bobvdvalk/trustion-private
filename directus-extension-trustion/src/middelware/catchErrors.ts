@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 
 export const catchErrors = (handler: (req: Request, res: Response) => Promise<void> | void) => {
     return async (req: Request, res: Response) => {
@@ -16,7 +16,8 @@ export const catchErrors = (handler: (req: Request, res: Response) => Promise<vo
                     }
                 ]
             };
-            res.json(errorPayload)
+            res.header(500);
+            res.json(errorPayload);
         }
     };
 };
