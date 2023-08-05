@@ -2104,6 +2104,49 @@ export interface DirectusTranslation {
    value: string;
 }
 
+export interface Validation {
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   hash: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: string
+   * Type in database: character varying
+   */
+   filename: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: text
+   * Type in database: text
+   */
+   context: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: dateTime
+   * Type in database: timestamp without time zone
+   */
+   hashed_on: string;
+
+  /**
+   * No description.
+   *
+   * Type in directus: uuid
+   * Type in database: uuid
+   */
+   hashed_by: DirectusUser | DirectusUser["id"] | null;
+}
+
 export interface Company {
 
   /**
@@ -2243,23 +2286,15 @@ export interface Company {
    company_users: DirectusUser | null;
 }
 
-export interface Validation {
+export interface ValidationsDirectusUser {
 
   /**
    * No description.
    *
-   * Type in directus: text
-   * Type in database: text
+   * Type in directus: integer
+   * Type in database: integer
    */
-   context: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: timestamp
-   * Type in database: timestamp with time zone
-   */
-   date_created: string | null;
+   id: number;
 
   /**
    * No description.
@@ -2267,7 +2302,7 @@ export interface Validation {
    * Type in directus: string
    * Type in database: character varying
    */
-   filename: string | null;
+   validations_hash: string | null;
 
   /**
    * No description.
@@ -2275,31 +2310,7 @@ export interface Validation {
    * Type in directus: uuid
    * Type in database: uuid
    */
-   hash: string | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: uuid
-   * Type in database: uuid
-   */
-   id: string;
-
-  /**
-   * No description.
-   *
-   * Type in directus: uuid
-   * Type in database: uuid
-   */
-   user: DirectusUser | DirectusUser["id"] | null;
-
-  /**
-   * No description.
-   *
-   * Type in directus: uuid
-   * Type in database: uuid
-   */
-   user_created: DirectusUser | DirectusUser["id"] | null;
+   directus_users_id: string | null;
 }
 
 
@@ -2326,6 +2337,7 @@ export type Collections = {
   directus_dashboards: DirectusDashboard;
   directus_operations: DirectusOperation;
   directus_translations: DirectusTranslation;
-  company: Company;
   validations: Validation;
+  company: Company;
+  validations_directus_users: ValidationsDirectusUser;
 }

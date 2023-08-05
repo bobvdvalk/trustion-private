@@ -38,10 +38,10 @@ collections:
       collapse: open
       collection: validations
       color: null
-      display_template: '{{filename}}'
+      display_template: null
       group: null
       hidden: false
-      icon: file_present
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
@@ -52,6 +52,29 @@ collections:
       unarchive_value: null
     schema:
       name: validations
+  - collection: validations_directus_users
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: validations_directus_users
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      name: validations_directus_users
 fields:
   - collection: company
     field: KVK_number
@@ -884,12 +907,12 @@ fields:
       field: context
       group: null
       hidden: false
-      interface: input-rich-text-md
+      interface: input-multiline
       note: null
       options: null
       readonly: false
       required: true
-      sort: 7
+      sort: 5
       special: null
       translations: null
       validation: null
@@ -903,48 +926,7 @@ fields:
       max_length: null
       numeric_precision: null
       numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: validations
-    field: date_created
-    type: timestamp
-    meta:
-      collection: validations
-      conditions: null
-      display: datetime
-      display_options:
-        relative: true
-      field: date_created
-      group: null
-      hidden: true
-      interface: datetime
-      note: null
-      options: null
-      readonly: true
-      required: false
-      sort: 3
-      special:
-        - cast-timestamp
-        - date-created
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: date_created
-      table: validations
-      data_type: timestamp with time zone
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
+      is_nullable: false
       is_unique: false
       is_primary_key: false
       is_generated: false
@@ -968,7 +950,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 6
+      sort: 4
       special: null
       translations: null
       validation: null
@@ -982,7 +964,7 @@ fields:
       max_length: 255
       numeric_precision: null
       numeric_scale: null
-      is_nullable: true
+      is_nullable: false
       is_unique: false
       is_primary_key: false
       is_generated: false
@@ -992,7 +974,7 @@ fields:
       foreign_key_column: null
   - collection: validations
     field: hash
-    type: uuid
+    type: string
     meta:
       collection: validations
       conditions: null
@@ -1005,10 +987,9 @@ fields:
       note: null
       options: null
       readonly: false
-      required: true
-      sort: 5
-      special:
-        - uuid
+      required: false
+      sort: 1
+      special: null
       translations: null
       validation: null
       validation_message: null
@@ -1016,48 +997,9 @@ fields:
     schema:
       name: hash
       table: validations
-      data_type: uuid
+      data_type: character varying
       default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: validations
-    field: id
-    type: uuid
-    meta:
-      collection: validations
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: input
-      note: null
-      options: null
-      readonly: true
-      required: false
-      sort: 1
-      special:
-        - uuid
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: validations
-      data_type: uuid
-      default_value: null
-      max_length: null
+      max_length: 255
       numeric_precision: null
       numeric_scale: null
       is_nullable: false
@@ -1069,31 +1011,32 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: validations
-    field: user
+    field: hashed_by
     type: uuid
     meta:
       collection: validations
       conditions: null
       display: null
       display_options: null
-      field: user
+      field: hashed_by
       group: null
       hidden: false
       interface: select-dropdown-m2o
       note: null
       options:
+        enableCreate: false
         template: '{{first_name}} {{last_name}}'
       readonly: false
       required: true
-      sort: 4
+      sort: 2
       special:
         - m2o
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
-      name: user
+      name: hashed_by
       table: validations
       data_type: uuid
       default_value: null
@@ -1109,32 +1052,70 @@ fields:
       foreign_key_table: directus_users
       foreign_key_column: id
   - collection: validations
-    field: user_created
-    type: uuid
+    field: hashed_on
+    type: dateTime
     meta:
       collection: validations
       conditions: null
-      display: user
-      display_options: null
-      field: user_created
+      display: datetime
+      display_options:
+        relative: true
+      field: hashed_on
       group: null
-      hidden: true
-      interface: select-dropdown-m2o
+      hidden: false
+      interface: datetime
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        includeSeconds: true
       readonly: true
-      required: false
-      sort: 2
-      special:
-        - user-created
+      required: true
+      sort: 3
+      special: null
       translations: null
       validation: null
       validation_message: null
       width: half
     schema:
-      name: user_created
+      name: hashed_on
       table: validations
+      data_type: timestamp without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: validations_directus_users
+    field: directus_users_id
+    type: uuid
+    meta:
+      collection: validations_directus_users
+      conditions: null
+      display: null
+      display_options: null
+      field: directus_users_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: directus_users_id
+      table: validations_directus_users
       data_type: uuid
       default_value: null
       max_length: null
@@ -1146,8 +1127,84 @@ fields:
       is_generated: false
       generation_expression: null
       has_auto_increment: false
-      foreign_key_table: directus_users
-      foreign_key_column: id
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: validations_directus_users
+    field: id
+    type: integer
+    meta:
+      collection: validations_directus_users
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: validations_directus_users
+      data_type: integer
+      default_value: nextval('validations_directus_users_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: validations_directus_users
+    field: validations_hash
+    type: string
+    meta:
+      collection: validations_directus_users
+      conditions: null
+      display: null
+      display_options: null
+      field: validations_hash
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: validations_hash
+      table: validations_directus_users
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
 relations:
   - collection: company
     field: administrator
@@ -1234,12 +1291,12 @@ relations:
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: validations
-    field: user
+    field: hashed_by
     related_collection: directus_users
     meta:
-      junction_field: null
+      junction_field: validations_hash
       many_collection: validations
-      many_field: user
+      many_field: hashed_by
       one_allowed_collections: null
       one_collection: directus_users
       one_collection_field: null
@@ -1248,30 +1305,9 @@ relations:
       sort_field: null
     schema:
       table: validations
-      column: user
+      column: hashed_by
       foreign_key_table: directus_users
       foreign_key_column: id
-      constraint_name: validations_user_foreign
+      constraint_name: validations_hashed_by_foreign
       on_update: NO ACTION
       on_delete: SET NULL
-  - collection: validations
-    field: user_created
-    related_collection: directus_users
-    meta:
-      junction_field: null
-      many_collection: validations
-      many_field: user_created
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: validations
-      column: user_created
-      foreign_key_table: directus_users
-      foreign_key_column: id
-      constraint_name: validations_user_created_foreign
-      on_update: NO ACTION
-      on_delete: NO ACTION
