@@ -3,5 +3,10 @@
   "tagline": "Securing Digital Documents for All",
   "validateNow": "Validate your document now!",
   "pickFile": "Pick a document...",
-  "validate": "Validate"
+  "validate": "Validate",
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "cancel": "Cancel",
+  "logout": "Logout"
 }

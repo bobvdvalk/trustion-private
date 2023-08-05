@@ -1,10 +1,11 @@
 "use client";
-
 import Link from "next/link";
 import { useState } from "react";
 import { classNames } from "@/lib/classNames";
+import { Localized } from "@/i18n/Localized";
+import { MyAccountButtons } from "./MyAccountButtons";
 
-export const Navbar = () => {
+export const Navbar = ({ lang }: Localized) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -38,12 +39,7 @@ export const Navbar = () => {
 
         <div className="navbar-end">
           <div className="navbar-item">
-            <div className="buttons">
-              <a className="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a className="button is-light">Log in</a>
-            </div>
+            <MyAccountButtons lang={lang} />
           </div>
         </div>
       </div>

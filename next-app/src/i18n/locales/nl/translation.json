@@ -3,5 +3,10 @@
   "tagline": "Toegankelijke Beveiliging voor al jouw Digitale Documenten",
   "validateNow": "Valideer direct jouw document!",
   "pickFile": "Kies een document...",
-  "validate": "Valideer"
+  "validate": "Valideer",
+  "login": "Login",
+  "email": "Email",
+  "password": "Wachtwoord",
+  "cancel": "Annuleren",
+  "logout": "Uitloggen"
 }

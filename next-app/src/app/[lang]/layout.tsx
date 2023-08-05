@@ -20,7 +20,7 @@ export default function RootLayout({
   children,
 }: PropsWithChildren & PageProps) {
   return (
-    <html lang={lang}>
+    <html lang={lang} className="is-clipped">
       <body className={styles.body}>
         <Navbar />
         <main className={styles.main}>{children}</main>
