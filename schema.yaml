@@ -1,0 +1,1277 @@
+version: 1
+directus: 12.1.2
+vendor: postgres
+collections:
+  - collection: company
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: company
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: storefront
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations:
+        - language: nl-NL
+          translation: Bedrijf
+          singular: Bedrijf
+          plural: Bedrijven
+      unarchive_value: null
+    schema:
+      name: company
+  - collection: validations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: validations
+      color: null
+      display_template: '{{filename}}'
+      group: null
+      hidden: false
+      icon: file_present
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      name: validations
+fields:
+  - collection: company
+    field: KVK_number
+    type: bigInteger
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: KVK_number
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 9
+      special: null
+      translations:
+        - language: nl-NL
+          translation: KVK-nummer
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: KVK_number
+      table: company
+      data_type: bigint
+      default_value: null
+      max_length: null
+      numeric_precision: 64
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: VAT_number
+    type: bigInteger
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: VAT_number
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 8
+      special: null
+      translations:
+        - language: nl-NL
+          translation: BTW-nummer
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: VAT_number
+      table: company
+      data_type: bigint
+      default_value: null
+      max_length: null
+      numeric_precision: 64
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: address_line_1
+    type: string
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: address_line_1
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 12
+      special: null
+      translations:
+        - language: nl-NL
+          translation: Adres regel 1
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: address_line_1
+      table: company
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: address_line_2
+    type: string
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: address_line_2
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 14
+      special: null
+      translations:
+        - language: nl-NL
+          translation: Adres regel 2
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: address_line_2
+      table: company
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: administrator
+    type: uuid
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: administrator
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{first_name}} {{last_name}}'
+      readonly: false
+      required: true
+      sort: 10
+      special:
+        - m2o
+      translations:
+        - language: nl-NL
+          translation: Beheerder
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: administrator
+      table: company
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
+  - collection: company
+    field: city
+    type: string
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: city
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 15
+      special: null
+      translations:
+        - language: nl-NL
+          translation: Stad
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: city
+      table: company
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: company_name
+    type: string
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: company_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 7
+      special: null
+      translations:
+        - language: nl-NL
+          translation: Bedrijfsnaam
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: company_name
+      table: company
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: company_users
+    type: alias
+    meta:
+      collection: company
+      conditions: null
+      display: related-values
+      display_options:
+        template: ' {{first_name}} {{last_name}}'
+      field: company_users
+      group: null
+      hidden: false
+      interface: list-o2m
+      note: null
+      options:
+        fields:
+          - email
+          - first_name
+          - last_name
+        layout: table
+        tableSpacing: compact
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - o2m
+      translations:
+        - language: nl-NL
+          translation: Gebruikers
+      validation: null
+      validation_message: null
+      width: full
+  - collection: company
+    field: country
+    type: string
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: country
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowOther: true
+        choices:
+          - text: The Netherlands
+            value: the_netherlands
+      readonly: false
+      required: true
+      sort: 16
+      special: null
+      translations:
+        - language: nl-NL
+          translation: Land
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: country
+      table: company
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: date_created
+    type: timestamp
+    meta:
+      collection: company
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 3
+      special:
+        - cast-timestamp
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: date_created
+      table: company
+      data_type: timestamp with time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: date_updated
+    type: timestamp
+    meta:
+      collection: company
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 5
+      special:
+        - cast-timestamp
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: date_updated
+      table: company
+      data_type: timestamp with time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: divider-dm_cyl
+    type: alias
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: divider-dm_cyl
+      group: null
+      hidden: false
+      interface: presentation-divider
+      note: null
+      options:
+        inlineTitle: true
+        title: General information
+      readonly: false
+      required: false
+      sort: 6
+      special:
+        - alias
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: company
+    field: divider-dyy5ye
+    type: alias
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: divider-dyy5ye
+      group: null
+      hidden: false
+      interface: presentation-divider
+      note: null
+      options:
+        inlineTitle: true
+        title: Address
+      readonly: false
+      required: false
+      sort: 11
+      special:
+        - alias
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: company
+    field: divider-injrdx
+    type: alias
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: divider-injrdx
+      group: null
+      hidden: false
+      interface: presentation-divider
+      note: null
+      options:
+        inlineTitle: true
+        title: Company users
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - alias
+        - no-data
+      translations:
+        - language: nl-NL
+          translation: Gebruikers van het bedrijf
+      validation: null
+      validation_message: null
+      width: full
+  - collection: company
+    field: divider-synep9
+    type: alias
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: divider-synep9
+      group: null
+      hidden: false
+      interface: presentation-divider
+      note: null
+      options:
+        inlineTitle: true
+        title: Contact information
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - alias
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: company
+    field: id
+    type: integer
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: company
+      data_type: integer
+      default_value: nextval('company_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: phone_number
+    type: bigInteger
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: phone_number
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations:
+        - language: nl-NL
+          translation: Telefoonnummer
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: phone_number
+      table: company
+      data_type: bigint
+      default_value: null
+      max_length: null
+      numeric_precision: 64
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: user_created
+    type: uuid
+    meta:
+      collection: company
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 2
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: user_created
+      table: company
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
+  - collection: company
+    field: user_updated
+    type: uuid
+    meta:
+      collection: company
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 4
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: user_updated
+      table: company
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
+  - collection: company
+    field: website
+    type: string
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: website
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: website
+      table: company
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: company
+    field: zipcode
+    type: string
+    meta:
+      collection: company
+      conditions: null
+      display: null
+      display_options: null
+      field: zipcode
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 13
+      special: null
+      translations:
+        - language: nl-NL
+          translation: Postcode
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: zipcode
+      table: company
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: directus_users
+    field: company_users
+    type: integer
+    meta:
+      collection: directus_users
+      conditions: null
+      display: null
+      display_options: null
+      field: company_users
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: company_users
+      table: directus_users
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: company
+      foreign_key_column: id
+  - collection: validations
+    field: context
+    type: text
+    meta:
+      collection: validations
+      conditions: null
+      display: null
+      display_options: null
+      field: context
+      group: null
+      hidden: false
+      interface: input-rich-text-md
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: context
+      table: validations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: validations
+    field: date_created
+    type: timestamp
+    meta:
+      collection: validations
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 3
+      special:
+        - cast-timestamp
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: date_created
+      table: validations
+      data_type: timestamp with time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: validations
+    field: filename
+    type: string
+    meta:
+      collection: validations
+      conditions: null
+      display: null
+      display_options: null
+      field: filename
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: filename
+      table: validations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: validations
+    field: hash
+    type: uuid
+    meta:
+      collection: validations
+      conditions: null
+      display: null
+      display_options: null
+      field: hash
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 5
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: hash
+      table: validations
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: validations
+    field: id
+    type: uuid
+    meta:
+      collection: validations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: validations
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: validations
+    field: user
+    type: uuid
+    meta:
+      collection: validations
+      conditions: null
+      display: null
+      display_options: null
+      field: user
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{first_name}} {{last_name}}'
+      readonly: false
+      required: true
+      sort: 4
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: user
+      table: validations
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
+  - collection: validations
+    field: user_created
+    type: uuid
+    meta:
+      collection: validations
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 2
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: user_created
+      table: validations
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
+relations:
+  - collection: company
+    field: administrator
+    related_collection: directus_users
+    meta:
+      junction_field: null
+      many_collection: company
+      many_field: administrator
+      one_allowed_collections: null
+      one_collection: directus_users
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: company
+      column: administrator
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: company_administrator_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: company
+    field: user_created
+    related_collection: directus_users
+    meta:
+      junction_field: null
+      many_collection: company
+      many_field: user_created
+      one_allowed_collections: null
+      one_collection: directus_users
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: company
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: company_user_created_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
+  - collection: company
+    field: user_updated
+    related_collection: directus_users
+    meta:
+      junction_field: null
+      many_collection: company
+      many_field: user_updated
+      one_allowed_collections: null
+      one_collection: directus_users
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: company
+      column: user_updated
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: company_user_updated_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
+  - collection: directus_users
+    field: company_users
+    related_collection: company
+    meta:
+      junction_field: null
+      many_collection: directus_users
+      many_field: company_users
+      one_allowed_collections: null
+      one_collection: company
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: company_users
+      sort_field: null
+    schema:
+      table: directus_users
+      column: company_users
+      foreign_key_table: company
+      foreign_key_column: id
+      constraint_name: directus_users_company_users_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: validations
+    field: user
+    related_collection: directus_users
+    meta:
+      junction_field: null
+      many_collection: validations
+      many_field: user
+      one_allowed_collections: null
+      one_collection: directus_users
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: validations
+      column: user
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: validations_user_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: validations
+    field: user_created
+    related_collection: directus_users
+    meta:
+      junction_field: null
+      many_collection: validations
+      many_field: user_created
+      one_allowed_collections: null
+      one_collection: directus_users
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: validations
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: validations_user_created_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
