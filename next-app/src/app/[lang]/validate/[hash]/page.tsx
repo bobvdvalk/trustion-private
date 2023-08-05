@@ -5,7 +5,7 @@ import styles from "./page.module.scss";
 import { classNames } from "@/lib/classNames";
 import { DateTime } from "luxon";
 
-export async function getData(hash: string) {
+async function getData(hash: string) {
   const url = new URL(`${process.env.DIRECTUS_INTERNAL_URL}/validateDocument`);
   url.searchParams.set("hash", hash);
   const response = await fetch(url);

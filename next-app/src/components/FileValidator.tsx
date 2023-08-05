@@ -3,6 +3,7 @@ import { Localized } from "@/i18n/Localized";
 import { useTranslation } from "@/i18n/useTranslation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { classNames } from "@/lib/classNames";
 
 function base64EncodeURL(byteArray: Uint8Array) {
   return btoa(
@@ -20,6 +21,7 @@ function base64EncodeURL(byteArray: Uint8Array) {
 export const FileValidator = ({ lang }: Localized) => {
   const { t } = useTranslation(lang, "translation");
   const [file, setFile] = useState<File>();
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -31,10 +33,19 @@ export const FileValidator = ({ lang }: Localized) => {
     if (!file) {
       return;
     }
-
-    const hash = await crypto.subtle.digest("SHA-1", await file.arrayBuffer());
-    const base64 = base64EncodeURL(new Uint8Array(hash));
-    router.push(`/${lang}/validate/${base64}`);
+    setLoading(true);
+    setTimeout(async () => {
+      try {
+        const hash = await crypto.subtle.digest(
+          "SHA-1",
+          await file.arrayBuffer(),
+        );
+        const base64 = base64EncodeURL(new Uint8Array(hash));
+        router.push(`/${lang}/validate/${base64}`);
+      } finally {
+        setLoading(false);
+      }
+    });
   }
 
   return (
@@ -61,7 +72,10 @@ export const FileValidator = ({ lang }: Localized) => {
           </div>
           <div className="field is-grouped is-grouped-right">
             <div className="control">
-              <button disabled={!file} className="button is-primary">
+              <button
+                disabled={!file}
+                {...classNames("button", "is-primary", loading && "is-loading")}
+              >
                 {t("validate")}
               </button>
             </div>

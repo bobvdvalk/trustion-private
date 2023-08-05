@@ -1,0 +1,33 @@
+# Dit is een deployment voorbeeld
+version: "3.8"
+
+services:
+  database:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: heelgeheim
+  directus:
+    image: trustion
+    entrypoint:
+      - yarn
+      - workspace
+      - directus
+      - start
+    environment:
+      KEY: ssssshhhh
+      SECRET: meer_sssshhh
+      # Hier configureer je directus
+  website:
+    image: trustion
+    ports:
+      - "3000:3000"
+    entrypoint:
+      - yarn
+      - workspace
+      - next-app
+      - start
+    environment:
+      DIRECTUS_INTERNAL_URL: http://directus:8055
+      # Hier configureer je de website

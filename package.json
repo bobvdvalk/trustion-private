@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev": "wsrun dev",
+    "build": "wsrun -m build",
     "dump": "wsrun -m dump",
     "stop": "wsrun -m stop"
   },

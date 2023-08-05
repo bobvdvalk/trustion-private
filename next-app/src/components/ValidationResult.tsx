@@ -2,6 +2,8 @@ import { getTranslator } from "@/i18n/getTranslator";
 import { Localized } from "@/i18n/Localized";
 import { DateTime } from "luxon";
 import styles from "./ValidationResult.module.scss";
+import placeholder from "@/images/96x96.png";
+import Image from "next/image";
 
 export interface Props {
   result: {
@@ -24,10 +26,7 @@ export const ValidationResult = async ({ result, lang }: Props & Localized) => {
         <div className="media">
           <div className="media-left">
             <figure className="image is-48x48">
-              <img
-                src="https://bulma.io/images/placeholders/96x96.png"
-                alt="Placeholder image"
-              />
+              <Image src={placeholder} width={96} alt="Placeholder image" />
             </figure>
           </div>
           <div className="media-content">
