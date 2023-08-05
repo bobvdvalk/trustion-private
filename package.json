@@ -2,10 +2,10 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "app",
       "directus-app",
       "directus-extension-trustion",
-      "models"
+      "models",
+      "next-app"
     ]
   },
   "scripts": {

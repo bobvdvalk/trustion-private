@@ -29,6 +29,9 @@
     "dev": "directus-extension build -w --no-minify",
     "build": "directus-extension build"
   },
+  "dependencies": {
+    "models": "*"
+  },
   "devDependencies": {
     "@directus/extensions-sdk": "10.1.3",
     "@types/node": "^20.2.5",
