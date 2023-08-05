@@ -1,4 +1,7 @@
 {
   "title": "Trustion",
-  "tagline": "Toegankelijke Beveiliging voor al jouw Digitale Documenten"
+  "tagline": "Toegankelijke Beveiliging voor al jouw Digitale Documenten",
+  "validateNow": "Valideer direct jouw document!",
+  "pickFile": "Kies een document...",
+  "validate": "Valideer"
 }

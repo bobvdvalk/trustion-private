@@ -1,4 +1,7 @@
 {
   "title": "Trustion",
-  "tagline": "Securing Digital Documents for All"
+  "tagline": "Securing Digital Documents for All",
+  "validateNow": "Validate your document now!",
+  "pickFile": "Pick a document...",
+  "validate": "Validate"
 }
