@@ -14,9 +14,11 @@
     "stop": "wsrun -m stop"
   },
   "devDependencies": {
+    "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-prettier": "^5.0.0",
     "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.1",
     "wsrun": "^5.2.4"
   }
 }
