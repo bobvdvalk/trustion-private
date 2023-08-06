@@ -1,6 +1,8 @@
 FROM node:18 as base
 
 WORKDIR /app
+ENV TELEMETRY=false
+ENV NEXT_TELEMETRY_DISABLED=1
 
 COPY yarn.lock /app/yarn.lock
 COPY package.json /app/package.json
@@ -26,6 +28,7 @@ FROM base as production
 ENV NODE_ENV=production
 RUN yarn install --frozen-lockfile --production
 
+COPY --from=build /app/directus-app/schema.yml directus-app/schema.yaml
 COPY --from=build /app/directus-extension-trustion/dist directus-extension-trustion/dist
 COPY --from=build /app/models/dist models/dist
 COPY --from=build /app/next-app/.next next-app/.next

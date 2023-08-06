@@ -11,7 +11,8 @@
     "dump": "run-p dump:**",
     "dump:schema": "directus schema snapshot ./schema.yaml --yes",
     "dump:model": "directus models snapshot ../models/src/index.ts",
-    "stop": "docker compose down"
+    "stop": "docker compose down",
+    "start": "yarn dev:bootstrap && yarn dev:schema && directus start"
   },
   "dependencies": {
     "directus": "^10.5.2",

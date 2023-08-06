@@ -2,7 +2,7 @@
 const nextConfig = {
   async rewrites() {
     return {
-      beforeFiles: [
+      afterFiles: [
         {
           source: "/api/:path*",
           destination: `${process.env.DIRECTUS_INTERNAL_URL}/:path*`,
