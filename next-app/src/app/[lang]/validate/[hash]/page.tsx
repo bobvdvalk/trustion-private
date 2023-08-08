@@ -2,8 +2,6 @@ import { PageProps } from "@/app/PageProps";
 import { getTranslator } from "@/i18n/getTranslator";
 import { ValidationResult } from "@/components/ValidationResult";
 import styles from "./page.module.scss";
-import { classNames } from "@/lib/classNames";
-import { DateTime } from "luxon";
 
 async function getData(hash: string) {
   const url = new URL(`${process.env.DIRECTUS_INTERNAL_URL}/validateDocument`);
