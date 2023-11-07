@@ -51,7 +51,7 @@ export const MyAccountButtons = ({ lang }: Localized) => {
       <>
         <div className="buttons">
           <button
-            className="button is-primary"
+            className="button is-primary custom-background"
             onClick={() => {
               setShowSignModal(true);
             }}

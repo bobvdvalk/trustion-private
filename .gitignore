@@ -4,3 +4,4 @@ uploads/
 dist/
 .next/
 *.log
+.DS_Store
