@@ -76,6 +76,10 @@ html, body {
     color: #FFF;
 }
 
+.radius-8 {
+    border-radius: 8px;
+}
+
 .aside .compose .button {
     background: linear-gradient(to left, #618DC1, #AE81A0);
 }
