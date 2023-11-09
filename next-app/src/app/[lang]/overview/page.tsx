@@ -28,7 +28,7 @@ export default async function Overview({ params: { lang } }: PageProps) {
         <TopContent lang={lang} />
         <div className="inbox-messages" id="inbox-messages">
           <div>
-            <ValidationsTable lang={lang} data={data} />
+            <ValidationsTable lang={lang} data={data.data} />
           </div>
         </div>
       </div>

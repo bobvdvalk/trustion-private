@@ -3,6 +3,7 @@ import { getTranslator } from "@/i18n/getTranslator";
 import Image from "next/image";
 import logo from "../images/logo.png";
 import validate from "../images/validate.png";
+import { FileValidator } from "@/components/FileValidator";
 
 export const SideNav = async ({ lang }: Localized) => {
   const { t } = await getTranslator(lang, "translation");
@@ -23,7 +24,7 @@ export const SideNav = async ({ lang }: Localized) => {
               />
             </div>
           </div>
-          <a href="#" className="item active">
+          <a href="/overview" className="item active">
             <span className="icon">
               <i className="fa fa-house" />
             </span>
@@ -40,6 +41,29 @@ export const SideNav = async ({ lang }: Localized) => {
               <i className="fa fa-fingerprint" />
             </span>
             <span className="name">Verify</span>
+          </a>
+        </div>
+        <div>
+          <FileValidator lang={lang} />
+        </div>
+        <div className="main">
+          <a href="/overview" className="item">
+            <span className="icon">
+              <i className="fa fa-people-group" />
+            </span>
+            <span className="name">Team</span>
+          </a>
+          <a href="#" className="item">
+            <span className="icon">
+              <i className="fa fa-headset" />
+            </span>
+            <span className="name">Support</span>
+          </a>
+          <a href="#" className="item">
+            <span className="icon">
+              <i className="fa fa-gear" />
+            </span>
+            <span className="name">Settings</span>
           </a>
         </div>
       </aside>

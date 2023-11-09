@@ -1,3 +1,4 @@
+// @ts-ignore
 export const ShowUserBox = ({ first_name, last_name, email }) => {
   return (
     <>

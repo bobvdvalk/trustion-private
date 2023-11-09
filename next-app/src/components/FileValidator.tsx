@@ -53,28 +53,32 @@ export const FileValidator = ({ lang }: Localized) => {
       <div className="container">
         <h2 className="title">{t("validateNow")}</h2>
         <form onSubmit={handleSubmit}>
-          <div className="field file has-name is-right is-fullwidth">
-            <label className="file-label">
-              <input
-                className="file-input"
-                type="file"
-                name="document"
-                onChange={handleChange}
-              />
-              <span className="file-cta">
-                <span className="file-icon">
-                  <i className="fas fa-upload"></i>
-                </span>
-                <span className="file-label">{t("pickFile")}</span>
-              </span>
-              <span className="file-name">{file?.name || "..."}</span>
+          <div className="field  is-fullwidth">
+            <label
+              htmlFor="file-upload"
+              className="custom-file-upload is-fullwidth"
+            >
+              <i className="fa fa-cloud-upload"></i> Drag and drop files, or
+              Browse
             </label>
+            <input
+              className=""
+              type="file"
+              name="document"
+              id="file-upload"
+              onChange={handleChange}
+            />
           </div>
-          <div className="field is-grouped is-grouped-right">
+          <div className="field">
             <div className="control">
               <button
                 disabled={!file}
-                {...classNames("button", "is-primary", loading && "is-loading")}
+                {...classNames(
+                  "button",
+                  "eigenwijs",
+                  "is-primary",
+                  loading && "is-loading",
+                )}
               >
                 {t("validate")}
               </button>
