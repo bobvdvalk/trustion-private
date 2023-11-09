@@ -18,7 +18,7 @@ export const ValidationsTable = ({ lang }: Localized) => {
           </thead>
           <tbody>
             <tr>
-              <td>
+              <td className="has-text-centered">
                 <input type="checkbox" />
               </td>
               <td>Banaan.pdf</td>
@@ -27,7 +27,7 @@ export const ValidationsTable = ({ lang }: Localized) => {
               <td></td>
             </tr>
             <tr>
-              <td>
+              <td className="has-text-centered">
                 <input type="checkbox" />
               </td>
               <td>Cool.pdf</td>

@@ -298,6 +298,20 @@ html, body {
     vertical-align: middle;
 }
 
+.validationsTable table tr:hover {
+    background-color: #F8F9FD;
+}
+
 .validationsTable table td {
     vertical-align: middle;
+    border-bottom: solid 1px #E1E1E1;
+}
+
+.logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.overview-content {
+    padding: 24.5px;
 }
