@@ -5,7 +5,7 @@ import { useTranslation } from "@/i18n/useTranslation";
 import { DirectusUser } from "models";
 import { LoginModal } from "@/components/LoginModal";
 import { SignModal } from "@/components/SignModal";
-import styles from "../app/[lang]/layout.module.scss";
+import "../app/[lang]/overview/style.css";
 
 export const MyAccountButtons = ({ lang }: Localized) => {
   const [user, setUser] = useState<DirectusUser | false>();
@@ -52,7 +52,7 @@ export const MyAccountButtons = ({ lang }: Localized) => {
       <>
         <div className="buttons">
           <button
-            className={styles.gradientColor}
+            className="button eigenwijs has-text-weight-bold"
             onClick={() => {
               setShowSignModal(true);
             }}
