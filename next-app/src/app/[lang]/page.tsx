@@ -11,6 +11,7 @@ export default async function Home({ params: { lang } }: PageProps) {
           <h1 className="title">{t("title")}</h1>
           <span className="subtitle">{t("tagline")}</span>
         </div>
+        <FileValidator lang={lang} />
       </div>
     </>
   );
