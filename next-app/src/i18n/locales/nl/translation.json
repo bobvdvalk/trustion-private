@@ -16,5 +16,6 @@
   "signedOn": "{{date}} gemarkeerd",
   "alreadySignedError": "Dit document is al eerder gemarkeerd",
   "documentNotFound": "Document niet gevonden",
-  "documentNotFoundSubtitle": "Dit document is niet eerder gemarkeerd."
+  "documentNotFoundSubtitle": "Dit document is niet eerder gemarkeerd.",
+  "allFiles": "Alle bestanden"
 }

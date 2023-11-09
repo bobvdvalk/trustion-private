@@ -16,5 +16,6 @@
   "signedOn": "Signed {{date}}",
   "alreadySignedError": "This document has already been signed before",
   "documentNotFound": "Document not found",
-  "documentNotFoundSubtitle": "This document has nog been signed before."
+  "documentNotFoundSubtitle": "This document has nog been signed before.",
+  "allFiles": "All files"
 }
