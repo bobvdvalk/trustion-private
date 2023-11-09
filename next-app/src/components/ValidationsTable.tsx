@@ -1,7 +1,23 @@
-import { Localized } from "@/i18n/Localized";
 import "../app/[lang]/overview/style.css";
+import { Localized } from "@/i18n/Localized";
 
-export const ValidationsTable = ({ lang }: Localized) => {
+export interface Documents {
+  data: [
+    document: {
+      context: string;
+      filename: string;
+      hash: string;
+      hashed_by: string;
+      hashed_on: string;
+    },
+  ];
+}
+
+export const ValidationsTable = async ({
+  data,
+  lang,
+}: Documents & Localized) => {
+  console.log(data);
   return (
     <>
       <div className="has-background-white radius-16 validationsTable">

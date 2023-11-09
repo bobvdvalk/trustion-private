@@ -73,7 +73,7 @@ html, body {
 
 .eigenwijs {
     background: linear-gradient(to left, #618DC1, #AE81A0);
-    color: #FFF;
+    color: #FFF !important;
 }
 
 .radius-8 {

@@ -1,6 +1,7 @@
 import { Localized } from "@/i18n/Localized";
 import { getTranslator } from "@/i18n/getTranslator";
 import React from "react";
+import "../app/[lang]/overview/style.css";
 
 export const TopContent = async ({ lang }: Localized) => {
   const { t } = await getTranslator(lang, "translation");

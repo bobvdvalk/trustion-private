@@ -2,7 +2,6 @@ import React, { PropsWithChildren } from "react";
 import "./overview/style.css";
 import "../../global.scss";
 import { PageProps } from "@/app/PageProps";
-import styles from "./layout.module.scss";
 import { getTranslator } from "@/i18n/getTranslator";
 import { SideNav } from "@/components/SideNav";
 import { ShowUserBox } from "@/components/ShowUserBox";
@@ -22,7 +21,7 @@ export default function RootLayout({
 }: PropsWithChildren & PageProps) {
   return (
     <html lang={lang}>
-      <body className={styles.body}>
+      <body>
         {/*<Navbar lang={lang} />*/}
         <main className="columns" id="mail-app">
           <SideNav lang={lang} />
