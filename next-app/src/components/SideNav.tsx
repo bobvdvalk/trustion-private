@@ -24,7 +24,7 @@ export const SideNav = async ({ lang }: Localized) => {
               />
             </div>
           </div>
-          <a href="/overview" className="item active">
+          <a href="/" className="item active">
             <span className="icon">
               <i className="fa fa-house" />
             </span>

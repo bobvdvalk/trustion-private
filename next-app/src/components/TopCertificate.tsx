@@ -10,7 +10,7 @@ export const TopCertificate = async ({ lang }: Localized) => {
       <div className="topcertificate level" style={{ marginTop: "15px" }}>
         <div className="level-left">
           <div className="level-item">
-            <a href="/overview" className="button">
+            <a href="/" className="button">
               <i className="fa fa-chevron-left" />
               Go back
             </a>
