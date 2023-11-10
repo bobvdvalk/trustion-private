@@ -1,5 +1,21 @@
-// @ts-ignore
-export const ShowUserBox = ({ first_name, last_name, email }) => {
+"use client";
+import { useEffect, useState } from "react";
+import { DirectusUser } from "models";
+import { getCurrentUser, logout } from "@/lib/api";
+
+export const ShowUserBox = () => {
+  const [user, setUser] = useState<DirectusUser | false>();
+  useEffect(() => {
+    getCurrentUser()
+      .then(setUser)
+      .catch((e) => {
+        // no login available
+        setUser(false);
+      });
+  }, []);
+  if (user === false) {
+    return null;
+  }
   return (
     <>
       <div className="media" style={{ marginTop: "15px" }}>
@@ -13,7 +29,15 @@ export const ShowUserBox = ({ first_name, last_name, email }) => {
         </div>
         <div className="media-content">
           <p className="title is-4">Bob van der Valk</p>
-          <p className="subtitle is-6">bob@trustion.io</p>
+          <p className="subtitle is-6">admin@example.com</p>
+          <button
+            className="button is-light"
+            onClick={async () => {
+              await logout();
+            }}
+          >
+            Logout
+          </button>
         </div>
       </div>
     </>

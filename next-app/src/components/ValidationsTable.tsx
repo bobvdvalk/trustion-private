@@ -1,5 +1,6 @@
 import "../app/[lang]/overview/style.css";
 import { Localized } from "@/i18n/Localized";
+import Link from "next/link";
 
 export interface Document {
   context: string;
@@ -9,10 +10,11 @@ export interface Document {
   hashed_on: string;
 }
 
-export const ValidationsTable = async ({
-  data,
-  lang,
-}: Document & Localized) => {
+export interface Props {
+  data: Document[];
+}
+
+export const ValidationsTable = async ({ data, lang }: Props & Localized) => {
   return (
     <>
       <div className="has-background-white radius-16 validationsTable">
@@ -30,7 +32,7 @@ export const ValidationsTable = async ({
           <tbody>
             {data.map((file) => {
               return (
-                <tr>
+                <tr key={file.hash}>
                   <td className="has-text-centered">
                     <input type="checkbox" />
                   </td>
@@ -38,7 +40,7 @@ export const ValidationsTable = async ({
                   <td>15kb</td>
                   <td>{file.hashed_on}</td>
                   <td>
-                    <a href={`/validate/${file.hash}`}>Certicate</a>
+                    <Link href={`/validate/${file.hash}`}>Certicate</Link>
                   </td>
                 </tr>
               );

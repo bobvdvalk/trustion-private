@@ -6,7 +6,6 @@ import { DirectusUser } from "models";
 import { LoginModal } from "@/components/LoginModal";
 import { SignModal } from "@/components/SignModal";
 import "../app/[lang]/overview/style.css";
-import { ShowUserBox } from "@/components/ShowUserBox";
 
 export const MyAccountButtons = ({ lang }: Localized) => {
   const [user, setUser] = useState<DirectusUser | false>();
@@ -51,11 +50,6 @@ export const MyAccountButtons = ({ lang }: Localized) => {
     return (
       <>
         <div className="buttons">
-          <ShowUserBox
-            first_name={user.data.first_name}
-            last_name={user.data.last_name}
-            email={user.data.email}
-          />
           <button
             className="button eigenwijs has-text-weight-bold"
             onClick={() => {

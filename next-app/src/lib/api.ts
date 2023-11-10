@@ -16,6 +16,7 @@ async function getAccessToken(): Promise<string | "unauthenticated"> {
 
   const response = await fetch("/api/auth/refresh", {
     method: "POST",
+    credentials: "include",
   });
   const result = await response.json();
   const token = result?.data?.access_token || "unauthenticated";

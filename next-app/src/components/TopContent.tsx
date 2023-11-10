@@ -2,6 +2,7 @@ import { Localized } from "@/i18n/Localized";
 import { getTranslator } from "@/i18n/getTranslator";
 import React from "react";
 import "../app/[lang]/overview/style.css";
+import Link from "next/link";
 
 export const TopContent = async ({ lang }: Localized) => {
   const { t } = await getTranslator(lang, "translation");
@@ -26,9 +27,12 @@ export const TopContent = async ({ lang }: Localized) => {
         </div>
         <div className="level-right">
           <div className="level-item">
-            <button className="button eigenwijs is-medium has-text-weight-bold radius-8">
+            <Link
+              href="/timestamp"
+              className="button eigenwijs is-medium has-text-weight-bold radius-8"
+            >
               Verify
-            </button>
+            </Link>
           </div>
         </div>
       </div>

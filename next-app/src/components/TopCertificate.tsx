@@ -2,6 +2,7 @@ import { Localized } from "@/i18n/Localized";
 import { getTranslator } from "@/i18n/getTranslator";
 import React from "react";
 import "../app/[lang]/overview/style.css";
+import Link from "next/link";
 
 export const TopCertificate = async ({ lang }: Localized) => {
   const { t } = await getTranslator(lang, "translation");
@@ -10,17 +11,20 @@ export const TopCertificate = async ({ lang }: Localized) => {
       <div className="topcertificate level" style={{ marginTop: "15px" }}>
         <div className="level-left">
           <div className="level-item">
-            <a href="/" className="button">
+            <Link href="/" className="button">
               <i className="fa fa-chevron-left" />
               Go back
-            </a>
+            </Link>
           </div>
         </div>
         <div className="level-right">
           <div className="level-item">
-            <button className="button eigenwijs is-medium has-text-weight-bold radius-8">
+            <Link
+              href="/timestamp"
+              className="button eigenwijs is-medium has-text-weight-bold radius-8"
+            >
               Verify
-            </button>
+            </Link>
           </div>
         </div>
       </div>

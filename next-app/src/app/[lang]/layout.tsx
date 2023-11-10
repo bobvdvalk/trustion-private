@@ -5,6 +5,7 @@ import { PageProps } from "@/app/PageProps";
 import { getTranslator } from "@/i18n/getTranslator";
 import { SideNav } from "@/components/SideNav";
 import { ShowUserBox } from "@/components/ShowUserBox";
+import { Navbar } from "@/components/Navbar";
 
 export async function generateMetadata({ params: { lang } }: PageProps) {
   const { t } = await getTranslator(lang, "translation");
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang={lang}>
       <body>
-        {/*<Navbar lang={lang} />*/}
+        <Navbar lang={lang} />
         <main className="columns" id="mail-app">
           <SideNav lang={lang} />
           <div className="column is-8 messages is-fullheight" id="message-feed">
@@ -32,11 +33,7 @@ export default function RootLayout({
             className="column is-6 message hero is-fullheight"
             id="message-pane"
           >
-            <ShowUserBox
-              first_name="Bob"
-              last_name="van der Valk"
-              email="bob@trustion.io"
-            />
+            <ShowUserBox />
           </div>
         </main>
       </body>

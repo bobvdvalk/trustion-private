@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from "../images/logo.png";
 import validate from "../images/validate.png";
 import { FileValidator } from "@/components/FileValidator";
+import Link from "next/link";
 
 export const SideNav = async ({ lang }: Localized) => {
   const { t } = await getTranslator(lang, "translation");
@@ -24,18 +25,18 @@ export const SideNav = async ({ lang }: Localized) => {
               />
             </div>
           </div>
-          <a href="/" className="item active">
+          <Link href="/" className="item active">
             <span className="icon">
               <i className="fa fa-house" />
             </span>
             <span className="name">Overview</span>
-          </a>
-          <a href="#" className="item">
+          </Link>
+          <Link href="/timestamp" className="item">
             <span className="icon">
               <i className="fa fa-user-alt" />
             </span>
             <span className="name">Timestamp</span>
-          </a>
+          </Link>
           <a href="#" className="item">
             <span className="icon">
               <i className="fa fa-fingerprint" />

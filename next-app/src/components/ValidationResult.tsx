@@ -13,13 +13,14 @@ export interface Props {
       context: string;
     };
   };
+  hash: string;
 }
 
 export const ValidationResult = async ({
   result,
   hash,
   lang,
-}: Props & String & Localized) => {
+}: Props & Localized) => {
   const { t } = await getTranslator(lang, "translations");
   const formattedDate = new Date(result?.document?.hashedOn);
   const fileType = result?.document?.filename.split(".").pop();
