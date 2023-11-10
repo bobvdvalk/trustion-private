@@ -25,10 +25,7 @@ export default function RootLayout({
         {/*<Navbar lang={lang} />*/}
         <main className="columns" id="mail-app">
           <SideNav lang={lang} />
-          <div
-            className="column is-8 messages hero is-fullheight"
-            id="message-feed"
-          >
+          <div className="column is-8 messages is-fullheight" id="message-feed">
             {children}
           </div>
           <div

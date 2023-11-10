@@ -17,5 +17,7 @@
   "alreadySignedError": "Dit document is al eerder gemarkeerd",
   "documentNotFound": "Document niet gevonden",
   "documentNotFoundSubtitle": "Dit document is niet eerder gemarkeerd.",
-  "allFiles": "Alle bestanden"
+  "allFiles": "Alle bestanden",
+  "certificateTitle": "Origin information certificate",
+  "certificate": "This certificate confirms the verified status of the file originally published and validated as: "
 }

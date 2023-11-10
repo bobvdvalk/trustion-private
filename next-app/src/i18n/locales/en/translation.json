@@ -17,5 +17,7 @@
   "alreadySignedError": "This document has already been signed before",
   "documentNotFound": "Document not found",
   "documentNotFoundSubtitle": "This document has nog been signed before.",
-  "allFiles": "All files"
+  "allFiles": "All files",
+  "certificateTitle": "Origin information certificate",
+  "certificate": "This certificate confirms the verified status of the file originally published and validated as: "
 }

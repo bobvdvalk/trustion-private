@@ -76,9 +76,6 @@ html, body {
     color: #FFF !important;
 }
 
-.radius-8 {
-    border-radius: 8px;
-}
 
 .aside .compose .button {
     background: linear-gradient(to left, #618DC1, #AE81A0);
@@ -122,10 +119,14 @@ html, body {
     border-radius: 10px;
 }
 
-.aside .main .icon {
+.item .active .icon {
     font-size: 19px;
     padding-right: 30px;
-    color: #A0A0A0;
+    color: #828282;
+}
+
+.icon .active {
+    color: #FFF;
 }
 
 .aside .main .name {
@@ -264,6 +265,7 @@ html, body {
     background-color: #F5F5F5;
 }
 
+
 .radius-16 {
     border-radius: 16px;
 }
@@ -329,5 +331,21 @@ input[type="file"] {
     cursor: pointer;
     width: 250px;
     height: 150px;
+}
 
+.card {
+    border: 24px solid;
+    border-radius: 16px;
+    border-image: linear-gradient(to left, #618DC1, #AE81A0) 16;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    /*border: double 16px transparent;*/
+}
+
+.card-content {
+    border-radius: 16px;
+}
+
+.topcertificate {
+    margin-top: -15px;
 }
